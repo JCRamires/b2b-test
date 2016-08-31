@@ -1,10 +1,12 @@
 const registerPromiseWorker = require('promise-worker/register')
+const axios = require('axios')
 
 registerPromiseWorker(function(message) {
-    let retorno = [
-        {id: 1, nome: 'Um simples OK'},
-        {id: 2, nome: 'Um simples status 200'}
-    ]
-
-    return retorno
+    return axios.get('http://localhost:3004/itensCatalogo').then((response) => {
+        let retorno = []
+        response.data.map((item) => {
+            retorno.push(item)
+        })
+        return retorno
+    })
 })

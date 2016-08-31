@@ -2,8 +2,8 @@
 
 module.exports = function() {
   var data = { itensCatalogo: [] }
-  for (var i = 0; i < 100000; i++) {
-    data.itensCatalogo.push({ id: i, nome: 'item' + i })
+  for (var i = 0; i < 10000; i++) {
+    data.itensCatalogo.push({ id: i+1, nome: 'item ' + (i+1) })
   }
   return data
 }
