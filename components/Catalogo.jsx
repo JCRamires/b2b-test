@@ -15,7 +15,7 @@ export default class Catalogo extends Component{
             itensCatalogo: []
         }
 
-        var worker = new Worker('./components/dist/ApplicationWorker.js')
+        var worker = new Worker('./ApplicationWorker.js')
         this.applicationWorker = new PromiseWorker(worker)
     }
 
@@ -40,7 +40,7 @@ export default class Catalogo extends Component{
     fetchContent(){
         this.applicationWorker.postMessage('shu').then((response) => {
             this.setState({
-                itensCatalogo: response,
+                itensCatalogo: response.itensCatalogo,
                 loading: false
             })
         }).catch((error) => {

@@ -7,7 +7,7 @@ module.exports = {
   },
   context: staticPath,
   output: {
-      path: staticPath + '/dist',
+      path: __dirname + '/dist',
       filename: '[name].js'
   },
   devtool: 'source-map',
