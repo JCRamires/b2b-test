@@ -1,17 +1,28 @@
+var staticPath = __dirname + '/components'
+
 module.exports = {
-  entry: './index',
+  entry: {
+    ApplicationContainer: './ApplicationContainer.js',
+    ApplicationWorker: './applicationWorker.js'
+  },
+  context: staticPath,
   output: {
-    filename: 'browser-bundle.js'
+      path: staticPath + '/dist',
+      filename: '[name].js'
   },
   devtool: 'source-map',
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.js|.jsx$/,
         loader: 'babel-loader',
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader'
       },
     ]
   }
