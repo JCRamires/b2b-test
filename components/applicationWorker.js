@@ -1,7 +1,20 @@
 import registerPromiseWorker from 'promise-worker/register'
 import axios from 'axios'
 
-registerPromiseWorker(function(message) {
+registerPromiseWorker((message) => {
     console.log(message)
-    return axios.get('http://localhost:3001/itensCatalogo').then(response => response.data)
+    switch(message.command){
+        case 'getItensCatalogo':
+            return getItensCatalogo()
+        case 'getDetalhesItemCatalogo':
+            return getDetalhesItemCatalogo(message.id)
+    }
 })
+
+function getItensCatalogo(){
+    return axios.get('http://localhost:3001/itensCatalogo').then(response => response.data)
+}
+
+function getDetalhesItemCatalogo(id){
+    return axios.get('http://localhost:3001/itensCatalogo/'+id).then(response => response.data)
+}
