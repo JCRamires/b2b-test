@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Router, Route, IndexRoute, browserHistory } from 'react-router'
 
-import Application from './Application.jsx'
-import Home from './Home.jsx'
-import Catalogo from './Catalogo.jsx'
-import DetalheItemCatalogo from './DetalheItemCatalogo.jsx'
-import About from './About.jsx'
-import PageNotFound from './PageNotFound.jsx'
+import Application from './components/Application.jsx'
+import Home from './components/Home.jsx'
+import Catalogo from './components/Catalogo.jsx'
+import DetalheItemCatalogo from './components/DetalheItemCatalogo.jsx'
+import About from './components/About.jsx'
+import PageNotFound from './components/PageNotFound.jsx'
 
 ReactDOM.render((
     <Router history={browserHistory} >

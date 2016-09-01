@@ -12,7 +12,7 @@ export default class DetalheItemCatalogo extends Component {
             itensCatalogo: []
         }
 
-        var worker = new Worker('/ApplicationWorker.js')
+        var worker = new Worker('/catalogoWorker.js')
         this.applicationWorker = new PromiseWorker(worker)
     }
 

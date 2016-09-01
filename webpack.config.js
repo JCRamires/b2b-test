@@ -1,9 +1,9 @@
-var staticPath = __dirname + '/components'
+var staticPath = __dirname + '/src'
 
 module.exports = {
     entry: {
-        ApplicationContainer: './ApplicationContainer.js',
-        ApplicationWorker: './applicationWorker.js'
+        applicationContainer: './ApplicationContainer.js',
+        catalogoWorker: './workers/catalogoWorker.js'
     },
     context: staticPath,
     output: {
