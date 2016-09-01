@@ -1,5 +1,5 @@
-const registerPromiseWorker = require('promise-worker/register')
-const axios = require('axios')
+import registerPromiseWorker from 'promise-worker/register'
+import axios from 'axios'
 
 registerPromiseWorker(function(message) {
     console.log(message)
