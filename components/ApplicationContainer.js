@@ -5,8 +5,7 @@ import {Router, Route, IndexRoute, browserHistory } from 'react-router'
 import Application from './Application.jsx'
 import Catalogo from './Catalogo.jsx'
 import About from './About.jsx'
-
-// https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md#browserhistory
+import PageNotFound from './PageNotFound.jsx'
 
 ReactDOM.render((
     <Router history={browserHistory} >
@@ -14,5 +13,6 @@ ReactDOM.render((
             <IndexRoute component={Catalogo} />
             <Route path='about' component={About} />
         </Route>
+        <Route path='*' component={PageNotFound} />
     </Router>
 ), document.getElementById('react-root'))
