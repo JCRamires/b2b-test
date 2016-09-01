@@ -51,7 +51,10 @@ export default class Catalogo extends Component{
     render() {
         return (
             <div>
+                <Link to='/'>Home</Link>
+                <br />
                 <Link to='about'>About</Link>
+                <br />
                 {this.showContent()}
             </div>
         )
