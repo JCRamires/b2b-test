@@ -5,9 +5,10 @@ var staticPath = __dirname + '/src'
 
 module.exports = {
     entry: {
-        shu: ['webpack-dev-server/client?http://localhost:8080', 'webpack/hot/only-dev-server'],
+        webpackDevServer: ['webpack-dev-server/client?http://localhost:8080', 'webpack/hot/only-dev-server'],
+        vendor: ['react', 'react-dom', 'promise-worker'],
         applicationContainer: './ApplicationContainer',
-        catalogoWorker: './workers/catalogoWorker.js'
+        catalogoWorker: './workers/catalogoWorker.js',
     },
     context: staticPath,
     output: {
@@ -17,6 +18,10 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: Infinity
+        }),
         new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {

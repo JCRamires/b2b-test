@@ -15,8 +15,8 @@ export default class Catalogo extends Component{
             itensCatalogo: []
         }
 
-        var worker = new Worker('/dist/catalogoWorker.js')
-        this.applicationWorker = new PromiseWorker(worker)
+        let worker = require('worker!../workers/catalogoWorker')
+        this.applicationWorker = new PromiseWorker(new worker())
     }
 
     componentDidMount(){
