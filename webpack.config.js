@@ -6,9 +6,8 @@ var staticPath = __dirname + '/src'
 module.exports = {
     entry: {
         webpackDevServer: ['webpack-dev-server/client?http://localhost:8080', 'webpack/hot/only-dev-server'],
-        vendor: ['react', 'react-dom', 'promise-worker'],
-        applicationContainer: './ApplicationContainer',
-        catalogoWorker: './workers/catalogoWorker.js',
+        vendor: ['react', 'react-dom', 'react-router', 'promise-worker', 'axios'],
+        applicationContainer: './ApplicationContainer'
     },
     context: staticPath,
     output: {
