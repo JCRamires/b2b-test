@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var staticPath = __dirname + '/src'
 
@@ -20,6 +21,11 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: Infinity
+        }),
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+            title: 'B2B Test',
+            excludeChunks: ['webpackDevServer']
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
@@ -50,7 +56,7 @@ module.exports = {
     devServer: {
         hot: true,
         historyApiFallback: {
-          index: 'index.html'
+          index: '/dist/index.html'
         },
         stats: {colors: true}
       }
