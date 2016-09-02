@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PromiseWorker from 'promise-worker'
 
 import Loading from './Loading.jsx'
 
 export default class DetalheItemCatalogo extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
 
         this.state = {
@@ -12,7 +12,7 @@ export default class DetalheItemCatalogo extends Component {
             itensCatalogo: []
         }
 
-        var worker = new Worker('/catalogoWorker.js')
+        var worker = new Worker('/dist/catalogoWorker.js')
         this.applicationWorker = new PromiseWorker(worker)
     }
 
@@ -21,13 +21,16 @@ export default class DetalheItemCatalogo extends Component {
     }
 
     fetchDetails() {
-        this.applicationWorker.postMessage({command: 'getDetalhesItemCatalogo', id: this.props.params.id}).then((response) => {
+        this.applicationWorker.postMessage({
+            command: 'getDetalhesItemCatalogo',
+            id: this.props.params.id
+        }).then((response) => {
             this.setState({
                 detalhesItem: response,
                 loading: false
             })
         }).catch((error) => {
-            // handle error
+            console.log(error)
         })
     }
 

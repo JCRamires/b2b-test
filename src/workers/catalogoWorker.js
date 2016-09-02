@@ -12,9 +12,17 @@ registerPromiseWorker((message) => {
 })
 
 function getItensCatalogo(){
-    return axios.get('http://localhost:3001/itensCatalogo').then(response => response.data)
+    return axios.get('http://localhost:3000/itensCatalogo')
+        .then(response => response.data)
+        .catch(error => {
+            throw new Error(error)
+        })
 }
 
 function getDetalhesItemCatalogo(id){
-    return axios.get('http://localhost:3001/itensCatalogo/'+id).then(response => response.data)
+    return axios.get('http://localhost:3000/itensCatalogo/'+id)
+        .then(response => response.data)
+        .catch(error => {
+            throw new Error(error)
+        })
 }
