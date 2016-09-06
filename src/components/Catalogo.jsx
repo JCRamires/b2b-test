@@ -3,10 +3,13 @@ import PromiseWorker from 'promise-worker'
 
 import { Link } from 'react-router'
 
+import { connect } from 'react-redux'
+import { changeCurrentPage } from '../redux/actions/actions'
+
 import Loading from './Loading.jsx'
 import ItemCatalogo from './ItemCatalogo.jsx'
 
-export default class Catalogo extends Component{
+class Catalogo extends Component{
     constructor(props){
         super(props)
 
@@ -20,6 +23,7 @@ export default class Catalogo extends Component{
     }
 
     componentDidMount(){
+        this.props.changeCurrentPage('Catalogo')
         this.fetchContent()
     }
 
@@ -58,3 +62,13 @@ export default class Catalogo extends Component{
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeCurrentPage: currentPage => {
+            dispatch(changeCurrentPage(currentPage))
+        }
+    }
+}
+
+export const CatalogoContainer = connect(undefined, mapDispatchToProps)(Catalogo)

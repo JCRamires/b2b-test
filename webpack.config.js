@@ -8,7 +8,7 @@ module.exports = {
     entry: {
         webpackDevServer: ['webpack-dev-server/client?http://localhost:8080', 'webpack/hot/only-dev-server'],
         vendor: ['react', 'react-dom', 'react-router', 'promise-worker', 'axios'],
-        applicationContainer: './ApplicationContainer'
+        index: './index'
     },
     context: staticPath,
     output: {

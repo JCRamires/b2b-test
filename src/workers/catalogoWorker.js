@@ -2,7 +2,6 @@ import registerPromiseWorker from 'promise-worker/register'
 import axios from 'axios'
 
 registerPromiseWorker((message) => {
-    console.log(message)
     switch(message.command){
         case 'getItensCatalogo':
             return getItensCatalogo()
